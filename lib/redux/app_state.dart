@@ -1,15 +1,20 @@
 import 'package:built_value/built_value.dart';
 import 'package:flutter/material.dart' hide Builder;
 import 'package:redux/redux.dart';
+import 'package:stockton/models/calendar_entry.dart';
+import 'package:stockton/models/channel_state.dart';
 import 'package:stockton/models/group.dart';
+import 'package:stockton/models/in_app_notification.dart';
 import 'package:stockton/models/member.dart';
 import 'package:built_collection/built_collection.dart';
+import 'package:stockton/models/message.dart';
+import 'package:stockton/redux/ui/ui_state.dart';
 
 part 'app_state.g.dart';
 
 abstract class AppState implements Built<AppState, AppStateBuilder> {
 
-  BuiltList<CalendarEntry> get userCalendar;
+  BuiltList<CalendarEntry> get memberCalendar;
 
   BuiltMap<String, Group> get groups;
 
@@ -43,7 +48,7 @@ abstract class AppState implements Built<AppState, AppStateBuilder> {
     ..groups = MapBuilder()
     ..channelState = ChannelState.init().toBuilder()
     ..messagesOnScreen = ListBuilder()
-    ..groupUsers = ListBuilder()
+    ..groupMembers = ListBuilder()
     ..memberCalendar = ListBuilder()
     ..uiState = UiState().toBuilder());
 

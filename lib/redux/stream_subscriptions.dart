@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:stockton/models/channel.dart';
 import 'package:stockton/models/group.dart';
 import 'package:stockton/models/member.dart';
+import 'package:stockton/models/message.dart';
 
 // App member
 StreamSubscription<Member> memberUpdateSubscription;

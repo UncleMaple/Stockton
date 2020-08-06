@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:intl/intl.dart';
+import 'package:redux/redux.dart';
 
 // ??? logger 这段代码值得研究
 
@@ -114,4 +115,13 @@ abstract class LoggerClient {
     dynamic e,
     StackTrace s,
   });
+}
+
+class LoggerMiddleware<State> implements MiddlewareClass<State> {
+  @override
+  call(Store<State> store, action, next) {
+    next(action);
+
+    Logger.d("Middleware: { ${action.runtimeType} ");
+  }
 }

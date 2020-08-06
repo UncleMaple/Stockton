@@ -1,6 +1,6 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:redux/redux.dart';
-import 'package:redux_epics/redux_epics.dart';
+import 'package:stockton/models/channel_state.dart';
 import 'package:stockton/models/group.dart';
 import 'package:stockton/redux/app_actions.dart';
 import 'package:stockton/redux/authentication/auth_reducer.dart';
@@ -14,11 +14,11 @@ final appReducer = combineReducers<AppState>([
   TypedReducer<AppState, SelectGroup>(_onSelectGroup),
   ...authReducers,
   ...memberReducers,
-  ...calendarReducer,
-  ...channelReducers,
-  ...messageReducers,
-  ...pushReducers,
-  ...uiReducers,
+//  ...calendarReducer,
+//  ...channelReducers,
+//  ...messageReducers,
+//  ...pushReducers,
+//  ...uiReducers,
 ]);
 
 AppState _onGroupsLoaded(AppState state, OnGroupsLoaded action) {
