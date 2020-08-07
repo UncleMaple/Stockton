@@ -4,6 +4,7 @@ import 'package:redux/redux.dart';
 import 'package:stockton/data/channel_repository.dart';
 import 'package:stockton/data/group_repository.dart';
 import 'package:stockton/data/member_repository.dart';
+import 'package:stockton/presentation/login/login_screen.dart';
 import 'package:stockton/redux/app_middleware.dart';
 import 'package:stockton/redux/app_reducer.dart';
 import 'package:stockton/redux/app_state.dart';
@@ -58,7 +59,8 @@ class _StocktonAppState extends State<StocktonApp> {
     );
 
     // 验证登录状态
-    store.dispatch(VerifyAuthenticationState());
+//    store.dispatch(VerifyAuthenticationState());
+
 //    // 同步消息
 //    _firebaseMessaging.configure(
 //      onMessage: (Map<String, dynamic> message) async {
@@ -104,6 +106,7 @@ class _StocktonAppState extends State<StocktonApp> {
         title: "Stockton App",
         navigatorKey: _navigatorKey,
         theme: AppTheme.theme,
+        initialRoute: Routes.login,
         routes: {
           Routes.login: (context) {
             return LoginScreen();

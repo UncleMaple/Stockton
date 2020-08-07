@@ -41,7 +41,7 @@ abstract class Channel implements Built<Channel, ChannelBuilder> {
 }
 
 abstract class ChannelMember implements Built<ChannelMember, ChannelMemberBuilder> {
-  String get id;
+  int get id;
 
   // 请回复
   RSVP get rsvp;

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:stockton/presentation/login/auth_button.dart';
+import 'package:stockton/presentation/settings/privacy_settings_button.dart';
 import 'package:stockton/redux/app_state.dart';
 import 'package:stockton/redux/authentication/auth_actions.dart';
 import 'package:stockton/stockton_localization.dart';

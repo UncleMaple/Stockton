@@ -241,7 +241,7 @@ class ChannelBuilder implements Builder<Channel, ChannelBuilder> {
 
 class _$ChannelMember extends ChannelMember {
   @override
-  final String id;
+  final int id;
   @override
   final RSVP rsvp;
 
@@ -288,9 +288,9 @@ class ChannelMemberBuilder
     implements Builder<ChannelMember, ChannelMemberBuilder> {
   _$ChannelMember _$v;
 
-  String _id;
-  String get id => _$this._id;
-  set id(String id) => _$this._id = id;
+  int _id;
+  int get id => _$this._id;
+  set id(int id) => _$this._id = id;
 
   RSVP _rsvp;
   RSVP get rsvp => _$this._rsvp;

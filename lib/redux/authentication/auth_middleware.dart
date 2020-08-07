@@ -50,6 +50,7 @@ void Function(Store<AppState> store, VerifyAuthenticationState action, NextDispa
     next(action);
 
     memberRepository.getAuthenticationStateChange().listen((member){
+      Logger.d("!!!走到了这里!!!");
       if (member == null) {
         navigatorKey.currentState.pushReplacementNamed(Routes.login);
       } else{

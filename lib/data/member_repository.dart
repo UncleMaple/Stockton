@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:built_collection/built_collection.dart';
+import 'package:dio/dio.dart';
 import 'package:stockton/models/member.dart';
 
 class MemberRepository {
@@ -37,7 +38,13 @@ class MemberRepository {
 
   // 登入
   Future<Member> signIn(String email, String password) async {
-
+    Dio dio = new Dio();
+    FormData formData = FormData.fromMap({
+      EMAIL: email,
+      PASSWORD: password,
+    });
+    Response response = await dio.post("localhost:5288/login", data: formData);
+    print(response.data.toString());
   }
 
   // 登出
