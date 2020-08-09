@@ -110,7 +110,7 @@ class SelectChannel {
   final String previousChannelId;
   final Channel channel;
   final int memberId;
-  final String groupId;
+  final int groupId;
 
   const SelectChannel({
     this.previousChannelId,

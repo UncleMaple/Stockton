@@ -8,7 +8,7 @@ part of 'in_app_notification.dart';
 
 class _$InAppNotification extends InAppNotification {
   @override
-  final String groupId;
+  final int groupId;
   @override
   final String groupName;
   @override
@@ -91,9 +91,9 @@ class InAppNotificationBuilder
     implements Builder<InAppNotification, InAppNotificationBuilder> {
   _$InAppNotification _$v;
 
-  String _groupId;
-  String get groupId => _$this._groupId;
-  set groupId(String groupId) => _$this._groupId = groupId;
+  int _groupId;
+  int get groupId => _$this._groupId;
+  set groupId(int groupId) => _$this._groupId = groupId;
 
   String _groupName;
   String get groupName => _$this._groupName;

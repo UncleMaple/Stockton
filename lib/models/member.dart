@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:stockton/models/serializers.dart';
@@ -57,6 +58,10 @@ abstract class Member implements Built<Member, MemberBuilder> {
 
   @nullable
   String get memo;
+
+  // 对应为groupId: [channelId], 标记未读的channels
+  @nullable
+  BuiltMap<String, BuiltList> get unreadUpdates;
 
   static Serializer<Member> get serializer => _$memberSerializer;
 

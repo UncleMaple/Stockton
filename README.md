@@ -44,6 +44,13 @@ token
 * 8.1-now(8.4):
   * [x] 登录注册界面已完成
   * [x] themeData设计已完成
-  * [ ] 登录注册逻辑实现开发中-%80
-  * [ ] 底层框架搭建开发中-进度一言难尽，持续踩坑中
+  * [ ] 登录注册逻辑实现开发中
+  * [ ] 底层框架搭建开发中
+
+## 需要改进
+
+* lib/util/HexColor.dart 改用flutter原生颜色管理
+
+## last temp
+lib/presentation/home/stockton_drawer.dart 38:47
 

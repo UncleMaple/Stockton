@@ -12,7 +12,7 @@ class _$AppState extends AppState {
   @override
   final BuiltMap<String, Group> groups;
   @override
-  final String selectedGroupId;
+  final int selectedGroupId;
   @override
   final Member member;
   @override
@@ -139,9 +139,9 @@ class AppStateBuilder implements Builder<AppState, AppStateBuilder> {
       _$this._groups ??= new MapBuilder<String, Group>();
   set groups(MapBuilder<String, Group> groups) => _$this._groups = groups;
 
-  String _selectedGroupId;
-  String get selectedGroupId => _$this._selectedGroupId;
-  set selectedGroupId(String selectedGroupId) =>
+  int _selectedGroupId;
+  int get selectedGroupId => _$this._selectedGroupId;
+  set selectedGroupId(int selectedGroupId) =>
       _$this._selectedGroupId = selectedGroupId;
 
   MemberBuilder _member;

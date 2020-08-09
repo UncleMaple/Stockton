@@ -24,7 +24,7 @@ class OnGroupsLoaded {
 
 @immutable
 class SelectGroup {
-  final String groupId;
+  final int groupId;
 
   const SelectGroup(this.groupId);
 

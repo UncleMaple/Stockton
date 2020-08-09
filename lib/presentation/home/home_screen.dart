@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:stockton/models/in_app_notification.dart';
 import 'package:stockton/presentation/home/home_app_bar.dart';
+import 'package:stockton/presentation/home/stockton_drawer.dart';
 import 'package:stockton/presentation/in_app_notification/in_app_notification_view_model.dart';
 import 'package:stockton/presentation/in_app_notification/in_app_notification_widget.dart';
 import 'package:stockton/redux/app_state.dart';

@@ -7,7 +7,7 @@ import 'channel.dart';
 part 'group.g.dart';
 
 abstract class Group implements Built<Group, GroupBuilder> {
-  String get id;
+  int get id;
 
   String get name;
 

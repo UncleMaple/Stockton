@@ -19,7 +19,7 @@ abstract class AppState implements Built<AppState, AppStateBuilder> {
   BuiltMap<String, Group> get groups;
 
   @nullable
-  String get selectedGroupId;
+  int get selectedGroupId;
 
   // 用户信息
   @nullable

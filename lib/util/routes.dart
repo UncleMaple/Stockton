@@ -10,7 +10,7 @@ class Routes {
   static final imagePinch = "/image/pinch";
   static final imagePicker = "/image/picker";
   static final reaction = "/reaction";
-  static final user = "/user";
+  static final member = "/member";
   static final settings = "/settings";
 }
 

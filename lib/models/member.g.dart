@@ -96,6 +96,13 @@ class _$MemberSerializer implements StructuredSerializer<Member> {
         ..add(serializers.serialize(object.memo,
             specifiedType: const FullType(String)));
     }
+    if (object.unreadUpdates != null) {
+      result
+        ..add('unreadUpdates')
+        ..add(serializers.serialize(object.unreadUpdates,
+            specifiedType: const FullType(BuiltMap,
+                const [const FullType(String), const FullType(BuiltList)])));
+    }
     return result;
   }
 
@@ -170,6 +177,11 @@ class _$MemberSerializer implements StructuredSerializer<Member> {
           result.memo = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
+        case 'unreadUpdates':
+          result.unreadUpdates.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltMap,
+                  const [const FullType(String), const FullType(BuiltList)])));
+          break;
       }
     }
 
@@ -208,6 +220,8 @@ class _$Member extends Member {
   final String token;
   @override
   final String memo;
+  @override
+  final BuiltMap<String, BuiltList> unreadUpdates;
 
   factory _$Member([void Function(MemberBuilder) updates]) =>
       (new MemberBuilder()..update(updates)).build();
@@ -227,7 +241,8 @@ class _$Member extends Member {
       this.salt,
       this.online,
       this.token,
-      this.memo})
+      this.memo,
+      this.unreadUpdates})
       : super._() {
     if (id == null) {
       throw new BuiltValueNullFieldError('Member', 'id');
@@ -268,7 +283,8 @@ class _$Member extends Member {
         salt == other.salt &&
         online == other.online &&
         token == other.token &&
-        memo == other.memo;
+        memo == other.memo &&
+        unreadUpdates == other.unreadUpdates;
   }
 
   @override
@@ -286,21 +302,28 @@ class _$Member extends Member {
                                             $jc(
                                                 $jc(
                                                     $jc(
-                                                        $jc($jc(0, id.hashCode),
-                                                            createdAt.hashCode),
-                                                        updatedAt.hashCode),
-                                                    deletedAt.hashCode),
-                                                phoneNum.hashCode),
-                                            password.hashCode),
-                                        email.hashCode),
-                                    account.hashCode),
-                                avatar.hashCode),
-                            gender.hashCode),
-                        nickname.hashCode),
-                    salt.hashCode),
-                online.hashCode),
-            token.hashCode),
-        memo.hashCode));
+                                                        $jc(
+                                                            $jc(
+                                                                $jc(
+                                                                    0,
+                                                                    id
+                                                                        .hashCode),
+                                                                createdAt
+                                                                    .hashCode),
+                                                            updatedAt.hashCode),
+                                                        deletedAt.hashCode),
+                                                    phoneNum.hashCode),
+                                                password.hashCode),
+                                            email.hashCode),
+                                        account.hashCode),
+                                    avatar.hashCode),
+                                gender.hashCode),
+                            nickname.hashCode),
+                        salt.hashCode),
+                    online.hashCode),
+                token.hashCode),
+            memo.hashCode),
+        unreadUpdates.hashCode));
   }
 
   @override
@@ -320,7 +343,8 @@ class _$Member extends Member {
           ..add('salt', salt)
           ..add('online', online)
           ..add('token', token)
-          ..add('memo', memo))
+          ..add('memo', memo)
+          ..add('unreadUpdates', unreadUpdates))
         .toString();
   }
 }
@@ -388,6 +412,12 @@ class MemberBuilder implements Builder<Member, MemberBuilder> {
   String get memo => _$this._memo;
   set memo(String memo) => _$this._memo = memo;
 
+  MapBuilder<String, BuiltList> _unreadUpdates;
+  MapBuilder<String, BuiltList> get unreadUpdates =>
+      _$this._unreadUpdates ??= new MapBuilder<String, BuiltList>();
+  set unreadUpdates(MapBuilder<String, BuiltList> unreadUpdates) =>
+      _$this._unreadUpdates = unreadUpdates;
+
   MemberBuilder();
 
   MemberBuilder get _$this {
@@ -407,6 +437,7 @@ class MemberBuilder implements Builder<Member, MemberBuilder> {
       _online = _$v.online;
       _token = _$v.token;
       _memo = _$v.memo;
+      _unreadUpdates = _$v.unreadUpdates?.toBuilder();
       _$v = null;
     }
     return this;
@@ -427,23 +458,37 @@ class MemberBuilder implements Builder<Member, MemberBuilder> {
 
   @override
   _$Member build() {
-    final _$result = _$v ??
-        new _$Member._(
-            id: id,
-            createdAt: createdAt,
-            updatedAt: updatedAt,
-            deletedAt: deletedAt,
-            phoneNum: phoneNum,
-            password: password,
-            email: email,
-            account: account,
-            avatar: avatar,
-            gender: gender,
-            nickname: nickname,
-            salt: salt,
-            online: online,
-            token: token,
-            memo: memo);
+    _$Member _$result;
+    try {
+      _$result = _$v ??
+          new _$Member._(
+              id: id,
+              createdAt: createdAt,
+              updatedAt: updatedAt,
+              deletedAt: deletedAt,
+              phoneNum: phoneNum,
+              password: password,
+              email: email,
+              account: account,
+              avatar: avatar,
+              gender: gender,
+              nickname: nickname,
+              salt: salt,
+              online: online,
+              token: token,
+              memo: memo,
+              unreadUpdates: _unreadUpdates?.build());
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'unreadUpdates';
+        _unreadUpdates?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'Member', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }
