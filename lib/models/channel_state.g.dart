@@ -8,7 +8,7 @@ part of 'channel_state.dart';
 
 class _$ChannelState extends ChannelState {
   @override
-  final String selectedChannel;
+  final int selectedChannel;
   @override
   final bool joinChannelFailed;
 
@@ -55,9 +55,9 @@ class ChannelStateBuilder
     implements Builder<ChannelState, ChannelStateBuilder> {
   _$ChannelState _$v;
 
-  String _selectedChannel;
-  String get selectedChannel => _$this._selectedChannel;
-  set selectedChannel(String selectedChannel) =>
+  int _selectedChannel;
+  int get selectedChannel => _$this._selectedChannel;
+  set selectedChannel(int selectedChannel) =>
       _$this._selectedChannel = selectedChannel;
 
   bool _joinChannelFailed;

@@ -16,7 +16,7 @@ abstract class AppState implements Built<AppState, AppStateBuilder> {
 
   BuiltList<CalendarEntry> get memberCalendar;
 
-  BuiltMap<String, Group> get groups;
+  BuiltMap<int, Group> get groups;
 
   @nullable
   int get selectedGroupId;

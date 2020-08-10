@@ -6,10 +6,10 @@ part 'message.g.dart';
 
 abstract class Message implements Built<Message, MessageBuilder> {
   @nullable
-  String get id;
+  int get id;
 
   @nullable
-  String get authorId;
+  int get authorId;
 
   String get body;
 
@@ -49,10 +49,10 @@ abstract class Message implements Built<Message, MessageBuilder> {
 // 自定义Builder允许defaults
 abstract class MessageBuilder implements Builder<Message, MessageBuilder> {
   @nullable
-  String id;
+  int id;
 
   @nullable
-  String authorId;
+  int authorId;
 
   String body;
 

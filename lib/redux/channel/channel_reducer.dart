@@ -48,7 +48,7 @@ AppState _onUpdateSelectedChannel(
 AppState _updateChannel(
     AppState state,
     Channel channel,
-    String groupId,
+    int groupId,
     ) {
   final groupChannels = (GroupBuilder c) {
     return c
@@ -78,7 +78,7 @@ AppState _onChannelsLoaded(AppState state, OnChannelsLoaded action) {
 
 AppState _updateCircle(
     AppState state,
-    String groupId,
+    int groupId,
     update(GroupBuilder c),
     ) {
   return state.rebuild((a) => a

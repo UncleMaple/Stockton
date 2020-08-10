@@ -6,7 +6,7 @@ part 'channel.g.dart';
 
 abstract class Channel implements Built<Channel, ChannelBuilder> {
   @nullable
-  String get id;
+  int get id;
 
   String get name;
 
@@ -18,7 +18,7 @@ abstract class Channel implements Built<Channel, ChannelBuilder> {
   BuiltList<ChannelMember> get members;
 
   @nullable
-  String get authorId;
+  int get authorId;
 
   @nullable
   bool get hasUpdates;

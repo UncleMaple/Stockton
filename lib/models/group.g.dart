@@ -18,7 +18,7 @@ class _$Group extends Group {
   @override
   final String abbreviation;
   @override
-  final BuiltMap<String, Channel> channels;
+  final BuiltMap<int, Channel> channels;
 
   factory _$Group([void Function(GroupBuilder) updates]) =>
       (new GroupBuilder()..update(updates)).build();
@@ -113,10 +113,10 @@ class GroupBuilder implements Builder<Group, GroupBuilder> {
   String get abbreviation => _$this._abbreviation;
   set abbreviation(String abbreviation) => _$this._abbreviation = abbreviation;
 
-  MapBuilder<String, Channel> _channels;
-  MapBuilder<String, Channel> get channels =>
-      _$this._channels ??= new MapBuilder<String, Channel>();
-  set channels(MapBuilder<String, Channel> channels) =>
+  MapBuilder<int, Channel> _channels;
+  MapBuilder<int, Channel> get channels =>
+      _$this._channels ??= new MapBuilder<int, Channel>();
+  set channels(MapBuilder<int, Channel> channels) =>
       _$this._channels = channels;
 
   GroupBuilder();

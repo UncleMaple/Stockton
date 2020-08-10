@@ -507,7 +507,7 @@ class StocktonLocalizations {
 
   String get userEditStatusHelper => _localizedValue("user_edit_status_helper");
 
-  String get deletedUser => _localizedValue("user_deleted");
+  String get deletedMember => _localizedValue("member_deleted");
 
   // else
   String get attachModalTitle => _localizedValue("attach_modal_title");

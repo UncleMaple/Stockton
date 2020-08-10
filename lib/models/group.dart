@@ -18,7 +18,7 @@ abstract class Group implements Built<Group, GroupBuilder> {
 
   String get abbreviation;
 
-  BuiltMap<String, Channel> get channels;
+  BuiltMap<int, Channel> get channels;
 
   Group._();
 

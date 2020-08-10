@@ -5,7 +5,7 @@ part 'channel_state.g.dart';
 abstract class ChannelState
     implements Built<ChannelState, ChannelStateBuilder> {
   @nullable
-  String get selectedChannel;
+  int get selectedChannel;
 
   bool get joinChannelFailed;
 

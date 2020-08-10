@@ -10,7 +10,7 @@ class _$Reaction extends Reaction {
   @override
   final String emoji;
   @override
-  final String memberId;
+  final int memberId;
   @override
   final String memberName;
   @override
@@ -78,9 +78,9 @@ class ReactionBuilder implements Builder<Reaction, ReactionBuilder> {
   String get emoji => _$this._emoji;
   set emoji(String emoji) => _$this._emoji = emoji;
 
-  String _memberId;
-  String get memberId => _$this._memberId;
-  set memberId(String memberId) => _$this._memberId = memberId;
+  int _memberId;
+  int get memberId => _$this._memberId;
+  set memberId(int memberId) => _$this._memberId = memberId;
 
   String _memberName;
   String get memberName => _$this._memberName;

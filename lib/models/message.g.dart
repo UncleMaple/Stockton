@@ -8,9 +8,9 @@ part of 'message.dart';
 
 class _$Message extends Message {
   @override
-  final String id;
+  final int id;
   @override
-  final String authorId;
+  final int authorId;
   @override
   final String body;
   @override
@@ -127,25 +127,25 @@ class _$MessageBuilder extends MessageBuilder {
   _$Message _$v;
 
   @override
-  String get id {
+  int get id {
     _$this;
     return super.id;
   }
 
   @override
-  set id(String id) {
+  set id(int id) {
     _$this;
     super.id = id;
   }
 
   @override
-  String get authorId {
+  int get authorId {
     _$this;
     return super.authorId;
   }
 
   @override
-  set authorId(String authorId) {
+  set authorId(int authorId) {
     _$this;
     super.authorId = authorId;
   }

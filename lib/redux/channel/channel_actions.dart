@@ -7,7 +7,7 @@ import 'package:stockton/models/member.dart';
 
 @immutable
 class LoadChannels {
-  final String groupId;
+  final int groupId;
 
   const LoadChannels(this.groupId);
 
@@ -20,7 +20,7 @@ class LoadChannels {
 
 @immutable
 class OnChannelsLoaded {
-  final String groupId;
+  final int groupId;
   final List<Channel> channels;
 
   const OnChannelsLoaded(this.groupId, this.channels);
@@ -84,7 +84,7 @@ class EditChannelAction {
 
 @immutable
 class OnUpdatedChannelAction {
-  final String groupId;
+  final int groupId;
   final Channel selectedChannel;
 
   const OnUpdatedChannelAction(this.groupId, this.selectedChannel);
@@ -92,10 +92,10 @@ class OnUpdatedChannelAction {
 
 @immutable
 class SelectChannelIdAction {
-  final String previousChannelId;
-  final String channelId;
+  final int previousChannelId;
+  final int channelId;
   final int memberId;
-  final String groupId;
+  final int groupId;
 
   const SelectChannelIdAction({
     this.previousChannelId,
@@ -107,7 +107,7 @@ class SelectChannelIdAction {
 
 @immutable
 class SelectChannel {
-  final String previousChannelId;
+  final int previousChannelId;
   final Channel channel;
   final int memberId;
   final int groupId;
@@ -144,7 +144,7 @@ class SelectChannel {
 
 @immutable
 class JoinChannelAction {
-  final String groupId;
+  final int groupId;
   final Channel channel;
   final Member member;
 
@@ -157,7 +157,7 @@ class JoinChannelAction {
 
 @immutable
 class JoinedChannelAction {
-  final String groupId;
+  final int groupId;
   final Channel channel;
 
   const JoinedChannelAction(
@@ -174,7 +174,7 @@ class ClearFailedJoinAction {}
 
 @immutable
 class LeaveChannelAction {
-  final String groupId;
+  final int groupId;
   final Channel channel;
   final int memberId;
 
@@ -183,8 +183,8 @@ class LeaveChannelAction {
 
 @immutable
 class LeftChannelAction {
-  final String groupId;
-  final String channelId;
+  final int groupId;
+  final int channelId;
   final int memberId;
 
   const LeftChannelAction(this.groupId, this.channelId, this.memberId);

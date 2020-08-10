@@ -8,7 +8,7 @@ part of 'channel.dart';
 
 class _$Channel extends Channel {
   @override
-  final String id;
+  final int id;
   @override
   final String name;
   @override
@@ -18,7 +18,7 @@ class _$Channel extends Channel {
   @override
   final BuiltList<ChannelMember> members;
   @override
-  final String authorId;
+  final int authorId;
   @override
   final bool hasUpdates;
   @override
@@ -127,9 +127,9 @@ class _$Channel extends Channel {
 class ChannelBuilder implements Builder<Channel, ChannelBuilder> {
   _$Channel _$v;
 
-  String _id;
-  String get id => _$this._id;
-  set id(String id) => _$this._id = id;
+  int _id;
+  int get id => _$this._id;
+  set id(int id) => _$this._id = id;
 
   String _name;
   String get name => _$this._name;
@@ -149,9 +149,9 @@ class ChannelBuilder implements Builder<Channel, ChannelBuilder> {
       _$this._members ??= new ListBuilder<ChannelMember>();
   set members(ListBuilder<ChannelMember> members) => _$this._members = members;
 
-  String _authorId;
-  String get authorId => _$this._authorId;
-  set authorId(String authorId) => _$this._authorId = authorId;
+  int _authorId;
+  int get authorId => _$this._authorId;
+  set authorId(int authorId) => _$this._authorId = authorId;
 
   bool _hasUpdates;
   bool get hasUpdates => _$this._hasUpdates;

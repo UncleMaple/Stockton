@@ -10,7 +10,7 @@ class _$AppState extends AppState {
   @override
   final BuiltList<CalendarEntry> memberCalendar;
   @override
-  final BuiltMap<String, Group> groups;
+  final BuiltMap<int, Group> groups;
   @override
   final int selectedGroupId;
   @override
@@ -134,10 +134,10 @@ class AppStateBuilder implements Builder<AppState, AppStateBuilder> {
   set memberCalendar(ListBuilder<CalendarEntry> memberCalendar) =>
       _$this._memberCalendar = memberCalendar;
 
-  MapBuilder<String, Group> _groups;
-  MapBuilder<String, Group> get groups =>
-      _$this._groups ??= new MapBuilder<String, Group>();
-  set groups(MapBuilder<String, Group> groups) => _$this._groups = groups;
+  MapBuilder<int, Group> _groups;
+  MapBuilder<int, Group> get groups =>
+      _$this._groups ??= new MapBuilder<int, Group>();
+  set groups(MapBuilder<int, Group> groups) => _$this._groups = groups;
 
   int _selectedGroupId;
   int get selectedGroupId => _$this._selectedGroupId;

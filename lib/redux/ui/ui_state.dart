@@ -11,7 +11,7 @@ abstract class UiState implements Built<UiState, UiStateBuilder> {
 
 
   // Group UI state per group id
-  BuiltMap<String, GroupUiState> get groupUiState;
+  BuiltMap<int, GroupUiState> get groupUiState;
 
   UiState._();
   factory UiState([void Function(UiStateBuilder) updates]) = _$UiState;
@@ -23,10 +23,10 @@ abstract class UiState implements Built<UiState, UiStateBuilder> {
 abstract class GroupUiState implements Built<GroupUiState, GroupUiStateBuilder> {
   // When a user changes groups, pick the last selected channel if present
   @nullable
-  String get lastSelectedChannel;
+  int get lastSelectedChannel;
 
   // Channel UI state per channel id
-  BuiltMap<String, ChannelUiState> get channelUiState;
+  BuiltMap<int, ChannelUiState> get channelUiState;
 
   GroupUiState._();
   factory GroupUiState([void Function(GroupUiStateBuilder) updates]) = _$GroupUiState;

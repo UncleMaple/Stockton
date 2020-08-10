@@ -8,7 +8,7 @@ part of 'ui_state.dart';
 
 class _$UiState extends UiState {
   @override
-  final BuiltMap<String, GroupUiState> groupUiState;
+  final BuiltMap<int, GroupUiState> groupUiState;
 
   factory _$UiState([void Function(UiStateBuilder) updates]) =>
       (new UiStateBuilder()..update(updates)).build();
@@ -48,10 +48,10 @@ class _$UiState extends UiState {
 class UiStateBuilder implements Builder<UiState, UiStateBuilder> {
   _$UiState _$v;
 
-  MapBuilder<String, GroupUiState> _groupUiState;
-  MapBuilder<String, GroupUiState> get groupUiState =>
-      _$this._groupUiState ??= new MapBuilder<String, GroupUiState>();
-  set groupUiState(MapBuilder<String, GroupUiState> groupUiState) =>
+  MapBuilder<int, GroupUiState> _groupUiState;
+  MapBuilder<int, GroupUiState> get groupUiState =>
+      _$this._groupUiState ??= new MapBuilder<int, GroupUiState>();
+  set groupUiState(MapBuilder<int, GroupUiState> groupUiState) =>
       _$this._groupUiState = groupUiState;
 
   UiStateBuilder();
@@ -100,9 +100,9 @@ class UiStateBuilder implements Builder<UiState, UiStateBuilder> {
 
 class _$GroupUiState extends GroupUiState {
   @override
-  final String lastSelectedChannel;
+  final int lastSelectedChannel;
   @override
-  final BuiltMap<String, ChannelUiState> channelUiState;
+  final BuiltMap<int, ChannelUiState> channelUiState;
 
   factory _$GroupUiState([void Function(GroupUiStateBuilder) updates]) =>
       (new GroupUiStateBuilder()..update(updates)).build();
@@ -148,15 +148,15 @@ class GroupUiStateBuilder
     implements Builder<GroupUiState, GroupUiStateBuilder> {
   _$GroupUiState _$v;
 
-  String _lastSelectedChannel;
-  String get lastSelectedChannel => _$this._lastSelectedChannel;
-  set lastSelectedChannel(String lastSelectedChannel) =>
+  int _lastSelectedChannel;
+  int get lastSelectedChannel => _$this._lastSelectedChannel;
+  set lastSelectedChannel(int lastSelectedChannel) =>
       _$this._lastSelectedChannel = lastSelectedChannel;
 
-  MapBuilder<String, ChannelUiState> _channelUiState;
-  MapBuilder<String, ChannelUiState> get channelUiState =>
-      _$this._channelUiState ??= new MapBuilder<String, ChannelUiState>();
-  set channelUiState(MapBuilder<String, ChannelUiState> channelUiState) =>
+  MapBuilder<int, ChannelUiState> _channelUiState;
+  MapBuilder<int, ChannelUiState> get channelUiState =>
+      _$this._channelUiState ??= new MapBuilder<int, ChannelUiState>();
+  set channelUiState(MapBuilder<int, ChannelUiState> channelUiState) =>
       _$this._channelUiState = channelUiState;
 
   GroupUiStateBuilder();
