@@ -8,11 +8,11 @@ part of 'calendar_entry.dart';
 
 class _$CalendarEntry extends CalendarEntry {
   @override
-  final String channelId;
+  final int channelId;
   @override
   final String channelName;
   @override
-  final String groupId;
+  final int groupId;
   @override
   final String groupName;
   @override
@@ -99,17 +99,17 @@ class CalendarEntryBuilder
     implements Builder<CalendarEntry, CalendarEntryBuilder> {
   _$CalendarEntry _$v;
 
-  String _channelId;
-  String get channelId => _$this._channelId;
-  set channelId(String channelId) => _$this._channelId = channelId;
+  int _channelId;
+  int get channelId => _$this._channelId;
+  set channelId(int channelId) => _$this._channelId = channelId;
 
   String _channelName;
   String get channelName => _$this._channelName;
   set channelName(String channelName) => _$this._channelName = channelName;
 
-  String _groupId;
-  String get groupId => _$this._groupId;
-  set groupId(String groupId) => _$this._groupId = groupId;
+  int _groupId;
+  int get groupId => _$this._groupId;
+  set groupId(int groupId) => _$this._groupId = groupId;
 
   String _groupName;
   String get groupName => _$this._groupName;

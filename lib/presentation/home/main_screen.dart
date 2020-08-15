@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:stockton/models/channel.dart';
+import 'package:stockton/presentation/channel/details/topic_details.dart';
+import 'package:stockton/presentation/channel/event/event_details.dart';
 import 'package:stockton/presentation/home/home_screen.dart';
 import 'package:stockton/presentation/home/main_screen_view_model.dart';
 import 'package:stockton/presentation/home/slide_out_screen.dart';
@@ -35,26 +37,30 @@ class _MainScreenState extends State<MainScreen> {
       builder: (context, vm) {
         if (vm.hasData) {
           return SlideOutScreen(
-            main: HomeScreen(sideOpenController: _sideOpenController),
+            main: HomeScreen(
+              sideOpenController: _sideOpenController,
+            ),
             side: _buildDetails(vm),
             sideOpenController: _sideOpenController,
           );
+        } else {
+          return Scaffold();
         }
       },
     );
   }
-}
 
-Widget _buildDetails(MainScreenViewModel viewModel) {
-  switch (viewModel.channelType) {
-    case ChannelType.TOPIC:
-      return TopicDetails(
-        sideOpenController: _sideOpenController,
-      );
-    case ChannelType.EVENT:
-      return EventDetails(
-        sideOpenController: _sideOpenController,
-      );
+  Widget _buildDetails(MainScreenViewModel viewModel) {
+    switch (viewModel.channelType) {
+      case ChannelType.TOPIC:
+        return TopicDetails(
+          sideOpenController: _sideOpenController,
+        );
+      case ChannelType.EVENT:
+        return EventDetails(
+          sideOpenController: _sideOpenController,
+        );
+    }
+    return null;
   }
-  return null;
 }

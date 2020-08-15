@@ -4,11 +4,11 @@ part 'calendar_entry.g.dart';
 
 abstract class CalendarEntry
     implements Built<CalendarEntry, CalendarEntryBuilder> {
-  String get channelId;
+  int get channelId;
 
   String get channelName;
 
-  String get groupId;
+  int get groupId;
 
   String get groupName;
 

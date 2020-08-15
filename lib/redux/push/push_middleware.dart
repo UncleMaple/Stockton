@@ -2,6 +2,7 @@ import "dart:io";
 
 
 import "package:redux/redux.dart";
+import 'package:stockton/data/channel_repository.dart';
 import 'package:stockton/data/group_repository.dart';
 import 'package:stockton/data/member_repository.dart';
 import 'package:stockton/models/in_app_notification.dart';
@@ -13,16 +14,16 @@ import 'package:stockton/redux/push/push_actions.dart';
 import 'package:stockton/util/logger.dart';
 
 List<Middleware<AppState>> createPushMiddleware(
-    MemberRepository memberRespository,
+    MemberRepository memberRepository,
     FirebaseMessaging firebaseMessaging,
     GroupRepository groupRepository,
     ChannelRepository channelRepository,
     ) {
   return [
     TypedMiddleware<AppState, UpdateMemberTokenAction>(
-        _updateUserAction(memberRespository)),
+        _updateUserAction(memberRepository)),
     TypedMiddleware<AppState, OnAuthenticated>(
-        _setTokenAfterLogin(memberRespository)),
+        _setTokenAfterLogin(memberRepository)),
     TypedMiddleware<AppState, OnPushNotificationOpenAction>(
         _onPushNotificationOpen(groupRepository, channelRepository)),
     TypedMiddleware<AppState, OnPushNotificationReceivedAction>(
