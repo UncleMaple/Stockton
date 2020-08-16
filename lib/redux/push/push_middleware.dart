@@ -1,6 +1,5 @@
 import "dart:io";
 
-
 import "package:redux/redux.dart";
 import 'package:stockton/data/channel_repository.dart';
 import 'package:stockton/data/group_repository.dart';

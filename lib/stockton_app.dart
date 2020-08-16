@@ -59,7 +59,7 @@ class _StocktonAppState extends State<StocktonApp> {
     );
 
     // 验证登录状态
-//    store.dispatch(VerifyAuthenticationState());
+    store.dispatch(VerifyAuthenticationState());
 
 //    // 同步消息
 //    _firebaseMessaging.configure(
