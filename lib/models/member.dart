@@ -10,6 +10,7 @@ part 'member.g.dart';
 abstract class Member implements Built<Member, MemberBuilder> {
   int get id;
 
+  @nullable
   @BuiltValueField(wireName: 'created_at')
   String get createdAt;
 
@@ -21,6 +22,7 @@ abstract class Member implements Built<Member, MemberBuilder> {
   @BuiltValueField(wireName: 'deleted_at')
   String get deletedAt;
 
+  @nullable
   @BuiltValueField(wireName: 'phone_num')
   String get phoneNum;
 
@@ -42,6 +44,7 @@ abstract class Member implements Built<Member, MemberBuilder> {
   @BuiltValueField(wireName: 'avatar')
   String get avatar;
 
+  @nullable
   String get gender;
 
   @nullable

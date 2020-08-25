@@ -14,8 +14,9 @@ class GroupRepository {
     return Group();
   }
 
-//  Stream<List<Group>> getGroupStream(memberId) {
-//    // 根据memberId 获取他加过的所有群
-//    return ;
-//  }
+  Stream<List<Group>> getGroupStream(memberId) {
+    // 根据memberId 获取他加过的所有群
+    // !!! 未实现
+    return null;
+  }
 }

@@ -11,7 +11,7 @@ class MembersUpdateAction {
 }
 
 @immutable
-class OnMemberUpdateAction { // !!! 这个地方的命名不舒服
+class OnMemberUpdateAction {
   final Member member;
 
   const OnMemberUpdateAction(this.member);

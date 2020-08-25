@@ -11,9 +11,8 @@ import 'login_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen(
-    Key key,
     this.memberId,
-  ) : super(key: key);
+  );
 
   final int memberId;
 

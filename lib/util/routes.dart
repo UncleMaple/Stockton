@@ -33,7 +33,7 @@ class FadePageRoute<T> extends MaterialPageRoute<T> {
     Animation<double> secondaryAnimation,
     Widget child,
   ) {
-    // 这块之后需要改掉！先暂时这么用着
+    // !!!这块之后需要改掉！先暂时这么用着
     // flutter升级去掉了settings.isInitialRoute
     // 具体升级替换方案参考 https://flutter.dev/docs/release/breaking-changes/route-navigator-refactoring
     if (settings.name == '/' || settings.name == '/login') {

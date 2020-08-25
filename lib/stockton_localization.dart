@@ -323,8 +323,10 @@ class StocktonLocalizations {
 
   String authErrorMessage(String code) {
     switch (code) {
-      case "ERROR_MEMBER_NOT_FOUND":
-        return _localizedValue("login_fail_member_not_found");
+      case "ERROR_MEMBER_LOGIN":
+        return _localizedValue("login_fail").replaceAll("{code}", "400");
+      case "":
+        return null;
       default:
         return _localizedValue("login_fail").replaceAll("{code}", code);
     }

@@ -20,16 +20,13 @@ class _$MemberSerializer implements StructuredSerializer<Member> {
     final result = <Object>[
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(int)),
-      'created_at',
-      serializers.serialize(object.createdAt,
-          specifiedType: const FullType(String)),
-      'phone_num',
-      serializers.serialize(object.phoneNum,
-          specifiedType: const FullType(String)),
-      'gender',
-      serializers.serialize(object.gender,
-          specifiedType: const FullType(String)),
     ];
+    if (object.createdAt != null) {
+      result
+        ..add('created_at')
+        ..add(serializers.serialize(object.createdAt,
+            specifiedType: const FullType(String)));
+    }
     if (object.updatedAt != null) {
       result
         ..add('updated_at')
@@ -40,6 +37,12 @@ class _$MemberSerializer implements StructuredSerializer<Member> {
       result
         ..add('deleted_at')
         ..add(serializers.serialize(object.deletedAt,
+            specifiedType: const FullType(String)));
+    }
+    if (object.phoneNum != null) {
+      result
+        ..add('phone_num')
+        ..add(serializers.serialize(object.phoneNum,
             specifiedType: const FullType(String)));
     }
     if (object.password != null) {
@@ -64,6 +67,12 @@ class _$MemberSerializer implements StructuredSerializer<Member> {
       result
         ..add('avatar')
         ..add(serializers.serialize(object.avatar,
+            specifiedType: const FullType(String)));
+    }
+    if (object.gender != null) {
+      result
+        ..add('gender')
+        ..add(serializers.serialize(object.gender,
             specifiedType: const FullType(String)));
     }
     if (object.nickname != null) {
@@ -246,15 +255,6 @@ class _$Member extends Member {
       : super._() {
     if (id == null) {
       throw new BuiltValueNullFieldError('Member', 'id');
-    }
-    if (createdAt == null) {
-      throw new BuiltValueNullFieldError('Member', 'createdAt');
-    }
-    if (phoneNum == null) {
-      throw new BuiltValueNullFieldError('Member', 'phoneNum');
-    }
-    if (gender == null) {
-      throw new BuiltValueNullFieldError('Member', 'gender');
     }
   }
 

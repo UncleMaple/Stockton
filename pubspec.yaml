@@ -48,8 +48,7 @@ dependencies:
   url_launcher: ^5.5.0
 
   # 网络请求
-  dio: ^3.0.9
-
+  dio: ^3.0.10
   # 简化material和cupertino风格部件的使用
   flutter_platform_widgets: ^0.60.1
 
@@ -59,6 +58,9 @@ dependencies:
   # 解析链接中的文本，url，email
   linkify: ^2.1.0
   flutter_linkify: ^3.1.3
+
+  # 本地存储
+  shared_preferences: ^0.5.8
 
 dev_dependencies:
   flutter_test:

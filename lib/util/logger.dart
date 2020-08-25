@@ -122,6 +122,6 @@ class LoggerMiddleware<State> implements MiddlewareClass<State> {
   call(Store<State> store, action, next) {
     next(action);
 
-    Logger.d("Middleware: { ${action.runtimeType} ");
+    Logger.d("Middleware: { ${action.runtimeType} }");
   }
 }

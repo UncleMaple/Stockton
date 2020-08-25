@@ -14,7 +14,8 @@ import 'package:stockton/util/logger.dart';
 
 List<Middleware<AppState>> createPushMiddleware(
     MemberRepository memberRepository,
-    FirebaseMessaging firebaseMessaging,
+// !!! 这块注释掉了
+//    FirebaseMessaging firebaseMessaging,
     GroupRepository groupRepository,
     ChannelRepository channelRepository,
     ) {

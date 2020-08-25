@@ -1,9 +1,15 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:built_collection/built_collection.dart';
 import 'package:dio/dio.dart';
+import 'package:intl/intl.dart';
 import 'package:stockton/models/member.dart';
+import 'package:stockton/util/config.dart';
+import 'package:stockton/util/data_result.dart';
 import 'package:stockton/util/http.dart';
+import 'package:stockton/util/local_storage.dart';
+import 'package:stockton/util/logger.dart';
 
 class MemberRepository {
   static const ID = "id";
@@ -24,7 +30,7 @@ class MemberRepository {
 
   // 根据member_id获取member数据
   Stream<Member> getMemberStream(memberId) async* {
-    Response response = await dio.get("localhost:5288/members/find",
+    Response response = await dio.get(Config.API_ADDRESS + "/v1/members/find",
         queryParameters: {"member_id": memberId});
     // ??? 会不会无限请求接口?
     yield _parseToMember(response);
@@ -32,26 +38,62 @@ class MemberRepository {
 
   // 根据group_id获取群内所有成员
   Stream<List<Member>> getMembersStream(groupId) async* {
-    Response response = await dio.get("localhost:5288/contacts/find_group_members",
+    Response response = await dio.get(
+        Config.API_ADDRESS + "/v1/contacts/find_group_members",
         queryParameters: {"group_id": groupId});
     // ??? 会不会无限请求接口?
+    // 经验证不会无限请求接口
     yield _parseToMembers(response);
   }
 
-  // !!! 没搞懂这个，可能和firebase有关
   // !!! 我的理解 每当登入或登出返回一个member，即登入返回登入的member，登出返回空member
-  Stream<Member> getAuthenticationStateChange() {}
+  Stream<Member> getAuthenticationStateChange() async* {
+    // 拿本地缓存的memberId去服务器检测是否在线状态，在线即返回member，离线即返回空member
+    int memberId;
+    var res = await getLocalMemberInfo();
+    if (res != null && res.result) {
+      memberId = res.data.id;
+      Response response = await dio.get(Config.API_ADDRESS + "/v1/members/find",
+          queryParameters: {"member_id": memberId});
+      Member member = _parseToMember(response);
+      if (member.online == 1) {
+        yield member;
+      } else {
+        yield null;
+      }
+    } else {
+      yield null;
+    }
+  }
+
+  // 获取本地登录用户信息
+  static getLocalMemberInfo() async {
+    var memberText = await LocalStorage.get(Config.MEMBER_INFO);
+    if (memberText != null) {
+      var memberMap = json.decode(memberText);
+      Member member = Member.fromMap(memberText);
+      return new DataResult(member, true);
+    } else {
+      return new DataResult(null, false);
+    }
+  }
 
   // 登入
   Future<Member> signIn(String email, String password) async {
+    Member member = Member.init();
     FormData formData = FormData.fromMap({
-      EMAIL: email,
+      ACCOUNT: email, // !!! 以后要优化
       PASSWORD: password,
     });
-    Response response =
-        await dio.post("localhost:5288/members/login", data: formData);
-//    print(response.data.toString());
-    return _parseToMember(response);
+    try {
+      Response response = await dio.post(Config.API_ADDRESS + "/v0/members/login",
+          data: formData);
+      member = _parseToMember(response);
+    } on DioError catch (e) {
+      Logger.w("login error: ${e.response.statusCode} ${e.response.data['data']}", e: e);
+    }
+
+    return member;
   }
 
   Member _parseToMember(dynamic response) {
@@ -66,7 +108,7 @@ class MemberRepository {
       ..gender = data[GENDER]
       ..nickname = data[NICKNAME]
       ..email = data[EMAIL]
-      ..phoneNum = data[ONLINE]
+      ..online = data[ONLINE]
       ..memo = data[MEMO]
       ..createdAt = data[CREATED_AT]
       ..updatedAt = data[UPDATED_AT]

@@ -6,11 +6,11 @@ import 'package:meta/meta.dart';
 class VerifyAuthenticationState {}
 
 class LogIn {
-  final String email;
+  final String account;
   final String password;
-  final Completer completer;
+  final Completer<String> completer;
 
-  LogIn({this.email, this.password, Completer completer})
+  LogIn({this.account, this.password, Completer completer})
       : completer = completer ?? Completer();
 }
 

@@ -11,7 +11,7 @@ List<Middleware<AppState>> createStoreMiddleware(
   return [
     LoggerMiddleware(),
     TypedMiddleware<AppState, SelectGroup>(_selectGroup()),
-    TypedMiddleware<AppState, ConnectToDataSource>(_loadData(groupRepository)),
+//    TypedMiddleware<AppState, ConnectToDataSource>(_loadData(groupRepository)),
   ];
 }
 

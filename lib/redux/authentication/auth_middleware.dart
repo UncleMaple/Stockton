@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:redux/redux.dart';
 import 'package:stockton/data/member_repository.dart';
 import 'package:stockton/redux/app_actions.dart';
@@ -38,9 +39,19 @@ void Function(Store<AppState> store, LogOutAction action, NextDispatcher next) _
 /// 登录认证
 void Function(Store<AppState> store, LogIn action, NextDispatcher next) _authLogin(MemberRepository memberRepository, GlobalKey<NavigatorState> navigatorKey) {
   return (store, action, next) async {
-    final member = await memberRepository.signIn(action.email, action.password);
-    store.dispatch(OnAuthenticated(member));
-//    store.dispatch(OnAuthenticated(member: member));
+    next(action);
+    try{
+      final member = await memberRepository.signIn(action.account, action.password);
+      if (member.id == -1){
+        throw Exception("ERROR_MEMBER_LOGIN");
+      }
+      store.dispatch(OnAuthenticated(member));
+
+//      await navigatorKey.currentState.pushReplacementNamed(Routes.home);
+      action.completer.complete();
+    } catch (e) {
+      action.completer.completeError(e);
+    }
   };
 }
 
@@ -50,7 +61,6 @@ void Function(Store<AppState> store, VerifyAuthenticationState action, NextDispa
     next(action);
 
     memberRepository.getAuthenticationStateChange().listen((member){
-//      Logger.d("!!!走到了这里!!!");
       if (member == null) {
         navigatorKey.currentState.pushReplacementNamed(Routes.login);
       } else{

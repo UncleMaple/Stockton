@@ -106,7 +106,7 @@ class _StocktonAppState extends State<StocktonApp> {
         title: "Stockton App",
         navigatorKey: _navigatorKey,
         theme: AppTheme.theme,
-        initialRoute: Routes.login,
+//        initialRoute: Routes.login,
         routes: {
           Routes.login: (context) {
             return LoginScreen();
@@ -114,7 +114,7 @@ class _StocktonAppState extends State<StocktonApp> {
           Routes.home: (context) {
             _updateMemberLocale(context);
 //            return MainScreen();
-            return HomeScreen(_navigatorKey, null);
+            return HomeScreen(null);
           }
         },
       ),
