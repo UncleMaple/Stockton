@@ -15,9 +15,10 @@ class Config {
 //  static const USER_NAME_KEY = "user-name";
 //  static const PW_KEY = "user-pw";
 //  static const USER_BASIC_CODE = "user-basic-code";
-  static const API_ADDRESS = "http://192.168.0.102:5288";
+  static const API_ADDRESS = "http://107.172.89.141:5288";
   static const MEMBER_INFO = "member-info";
   static const MEMBER_ID = "member_id";
+  static const MEMBER_TOKEN = "member_token";
 //  static const LANGUAGE_SELECT = "language-select";
 //  static const LANGUAGE_SELECT_NAME = "language-select-name";
 //  static const REFRESH_LANGUAGE = "refreshLanguageApp";

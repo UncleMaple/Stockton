@@ -21,7 +21,7 @@ List<Middleware<AppState>> createPushMiddleware(
     ) {
   return [
     TypedMiddleware<AppState, UpdateMemberTokenAction>(
-        _updateUserAction(memberRepository)),
+        _updateMemberAction(memberRepository)),
     TypedMiddleware<AppState, OnAuthenticated>(
         _setTokenAfterLogin(memberRepository)),
     TypedMiddleware<AppState, OnPushNotificationOpenAction>(
@@ -38,7 +38,7 @@ void Function(
     Store<AppState> store,
     UpdateMemberTokenAction action,
     NextDispatcher next,
-    ) _updateUserAction(MemberRepository memberRepository) {
+    ) _updateMemberAction(MemberRepository memberRepository) {
   return (store, action, next) async {
     next(action);
     try {

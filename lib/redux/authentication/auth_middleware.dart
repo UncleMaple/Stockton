@@ -5,6 +5,8 @@ import 'package:stockton/data/member_repository.dart';
 import 'package:stockton/redux/app_actions.dart';
 import 'package:stockton/redux/app_state.dart';
 import 'package:stockton/redux/authentication/auth_actions.dart';
+import 'package:stockton/util/config.dart';
+import 'package:stockton/util/local_storage.dart';
 import 'package:stockton/util/logger.dart';
 import 'package:stockton/util/routes.dart';
 
@@ -46,8 +48,9 @@ void Function(Store<AppState> store, LogIn action, NextDispatcher next) _authLog
         throw Exception("ERROR_MEMBER_LOGIN");
       }
       store.dispatch(OnAuthenticated(member));
+      LocalStorage.save(Config.MEMBER_TOKEN, member.token);
 
-//      await navigatorKey.currentState.pushReplacementNamed(Routes.home);
+//      await navigatorKey.currentState.pushReplacementNamed(Routes.home); // 路由页面切换在登录界面做了
       action.completer.complete();
     } catch (e) {
       action.completer.completeError(e);
@@ -64,7 +67,6 @@ void Function(Store<AppState> store, VerifyAuthenticationState action, NextDispa
       if (member == null) {
         navigatorKey.currentState.pushReplacementNamed(Routes.login);
       } else{
-//        store.dispatch(OnAuthenticated(member: member)); // !!! 改了这块
         store.dispatch(OnAuthenticated(member));
         store.dispatch(ConnectToDataSource());
       }
