@@ -5,6 +5,7 @@ import 'package:stockton/data/channel_repository.dart';
 import 'package:stockton/data/group_repository.dart';
 import 'package:stockton/data/member_repository.dart';
 import 'package:stockton/presentation/login/login_screen.dart';
+import 'package:stockton/presentation/nav/nav_screen.dart';
 import 'package:stockton/redux/app_middleware.dart';
 import 'package:stockton/redux/app_reducer.dart';
 import 'package:stockton/redux/app_state.dart';
@@ -114,7 +115,8 @@ class _StocktonAppState extends State<StocktonApp> {
           Routes.home: (context) {
             _updateMemberLocale(context);
 //            return MainScreen();
-            return HomeScreen(null);
+            return NavScreen();
+//             return HomeScreen();
           }
         },
       ),

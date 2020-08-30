@@ -186,7 +186,7 @@ class StocktonLocalizations {
       "member_edit_status_helper": "Maximum 200 characters",
       "member_deleted": "[deleted]",
     },
-    "ch": {
+    "zh": {
       // Auth
       "log_out": "登出",
       "log_in": "登入",

@@ -2,39 +2,29 @@ import 'package:flutter/material.dart';
 import 'package:stockton/models/message_model.dart';
 import 'package:stockton/screens/chat_screen.dart';
 import 'package:stockton/util/colors.dart';
+import 'package:stockton/util/theme.dart';
 
 class FavoriteContacts extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(vertical: 0.0),
+    return Container(
+      color: AppTheme.colorDeepBlack,
       child: Column(
         children: [
-//          Padding(
-//            padding: EdgeInsets.symmetric(horizontal: 20.0),
-//            child: Row(
-//              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//              children: [
-//                Text(
-//                  'Favorite Contacts',
-//                  style: TextStyle(
-//                    color: whiteDark,
-//                    fontSize: 18.0,
-//                    fontWeight: FontWeight.bold,
-//                    letterSpacing: 1.0,
-//                  ),
-//                ),
-//                IconButton(
-//                  icon: Icon(
-//                    Icons.more_horiz,
-//                  ),
-//                  iconSize: 30.0,
-//                  color: whiteDark,
-//                  onPressed: () {},
-//                ),
-//              ],
-//            ),
-//          ),
+         Padding(
+           padding: EdgeInsets.fromLTRB(20.0, 10.0,20.0,5.0),
+           child: Center(
+             child: Text(
+               'STATUS',
+               style: TextStyle(
+                 color: AppTheme.colorClassicBlue,
+                 fontSize: 22.0,
+                 fontWeight: FontWeight.w600,
+                 letterSpacing: 5.0,
+               ),
+             ),
+           ),
+         ),
           Container(
             height: 120.0,
             child: ListView.builder(

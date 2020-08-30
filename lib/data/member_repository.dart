@@ -84,14 +84,13 @@ class MemberRepository {
       PASSWORD: password,
     });
     var res = await httpManager.netFetch(
-        Address.loginMember(),
-        formData,
-        null,
-        new Options(method: 'POST'));
+        Address.loginMember(), formData, null, new Options(method: 'POST'));
     Member member = _parseToMember(res);
 
     // !!! 同步本地数据
-    LocalStorage.save(Config.MEMBER_ID, member.id?.toString());
+    if (member.id > 0) {
+      LocalStorage.save(Config.MEMBER_ID, member.id?.toString());
+    }
 
     return member;
   }

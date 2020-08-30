@@ -13,6 +13,13 @@ class AppTheme {
   static const fontFamilyEdmondsansMedium = "Edmondsans-Medium";
   static const fontFamilyEdmondsansBold = "Edmondsans-Bold";
 
+  // my custom
+  static const colorBrightGreen = Color(0xFF05A92C);
+  static const colorClassicBlue = Color(0xFF6699FF);
+  static const colorShallowBlack = Color(0xFF212328);
+  static const colorDeepBlack = Color(0xFF0D0D0D);
+  static const colorDarkWhite = Color(0xFFA6A7A9);
+
   static const colorDarkBlue = Color.fromRGBO(23, 38, 157, 1.0);
   static const colorDarkBlueFont = Color.fromRGBO(4, 24, 138, 1.0);
   static final colorDarkBlueImageSelection = Color(0xFF04188A);
@@ -451,9 +458,9 @@ class AppTheme {
     return InputDecorationTheme(
       border: OutlineInputBorder(borderSide: BorderSide(color: baseColor)),
       enabledBorder:
-      OutlineInputBorder(borderSide: BorderSide(color: baseColor)),
+          OutlineInputBorder(borderSide: BorderSide(color: baseColor)),
       focusedBorder:
-      OutlineInputBorder(borderSide: BorderSide(color: baseColor)),
+          OutlineInputBorder(borderSide: BorderSide(color: baseColor)),
       errorBorder: OutlineInputBorder(borderSide: BorderSide(color: colorRed)),
       errorStyle: TextStyle(
         fontSize: 12,
@@ -461,7 +468,7 @@ class AppTheme {
         color: colorRed,
       ),
       focusedErrorBorder:
-      OutlineInputBorder(borderSide: BorderSide(color: colorRed)),
+          OutlineInputBorder(borderSide: BorderSide(color: colorRed)),
       labelStyle: TextStyle(
         fontSize: 16,
         fontFamily: fontFamilyEdmondsansMedium,
@@ -474,5 +481,4 @@ class AppTheme {
       ),
     );
   }
-
 }
