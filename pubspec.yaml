@@ -55,6 +55,12 @@ dependencies:
   # 透明化图片
   transparent_image: ^1.0.0
 
+  # 根据网址获取图片
+  cached_network_image: ^2.3.1
+
+  # 选择图片(图库/相机)
+  image_picker: ^0.6.7+7
+
   # 解析链接中的文本，url，email
   linkify: ^2.1.0
   flutter_linkify: ^3.1.3

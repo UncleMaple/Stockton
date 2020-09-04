@@ -19,6 +19,7 @@ class AppTheme {
   static const colorShallowBlack = Color(0xFF212328);
   static const colorDeepBlack = Color(0xFF0D0D0D);
   static const colorDarkWhite = Color(0xFFA6A7A9);
+  static const colorBrightWhite = Color(0xFFE3E4E6);
 
   static const colorDarkBlue = Color.fromRGBO(23, 38, 157, 1.0);
   static const colorDarkBlueFont = Color.fromRGBO(4, 24, 138, 1.0);

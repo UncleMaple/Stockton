@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:stockton/models/message_model.dart';
-import 'package:stockton/models/user_model.dart';
+import 'package:stockton/mock_data/message_model.dart';
+import 'package:stockton/mock_data/user_model.dart';
 import 'package:stockton/util/colors.dart';
 
 class ChatScreen extends StatefulWidget {

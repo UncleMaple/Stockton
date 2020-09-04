@@ -1,4 +1,4 @@
-import 'package:stockton/models/user_model.dart';
+import 'package:stockton/mock_data/user_model.dart';
 
 class Message {
   final User sender;

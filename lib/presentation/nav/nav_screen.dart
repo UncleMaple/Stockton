@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stockton/models/member.dart';
 import 'package:stockton/presentation/common/responsive.dart';
+import 'package:stockton/presentation/me/me_screen.dart';
 import 'package:stockton/presentation/nav/custom_app_bar.dart';
 import 'package:stockton/presentation/nav/custom_tab_bar.dart';
 import 'package:stockton/screens/home_screen.dart';
@@ -15,11 +16,13 @@ class _NavScreenState extends State<NavScreen> {
   final List<Widget> _screens = [
     HomeScreen(),
     Scaffold(backgroundColor: AppTheme.colorShallowBlack),
+    MeScreen(),
   ];
 
   final List<IconData> _icons = const [
     Icons.chat,
     Icons.explore,
+    Icons.person,
   ];
   int _selectedIndex = 0;
 

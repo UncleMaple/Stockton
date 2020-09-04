@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:stockton/models/message_model.dart';
+import 'package:stockton/mock_data/message_model.dart';
 import 'package:stockton/screens/peep_chat_container.dart';
 import 'package:stockton/util/theme.dart';
 import 'package:stockton/widgets/favorite_contacts.dart';

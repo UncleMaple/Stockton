@@ -33,7 +33,7 @@ class MemberRepository {
   // 根据member_id获取member数据
   Stream<Member> getMemberStream(memberId) async* {
     ResultData res = await httpManager.netFetch(
-        Address.findMember(), {"member_id": memberId}, null, null);
+        Address.findMember(memberId), null, null, null);
     yield _parseToMember(res);
   }
 
@@ -53,7 +53,7 @@ class MemberRepository {
     if (dataRes != null && dataRes.result) {
       memberId = dataRes.data.id;
       var res = await httpManager.netFetch(
-          Address.findMember(), {"member_id": memberId}, null, null);
+          Address.findMember(memberId), null, null, null);
       Member member = _parseToMember(res);
       if (member.online == 1) {
         yield member;

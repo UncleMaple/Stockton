@@ -14,24 +14,22 @@ import 'package:stockton/util/theme.dart';
 class LoginScreen extends StatelessWidget {
   Duration get loginTime => Duration(milliseconds: timeDilation.ceil() * 1250);
 
-  Future<String> _loginUser(LoginData data, BuildContext context) {
-    return Future.delayed(loginTime).then((_) async {
-      String message;
-      final loginAction = LogIn(
-        account: data.name,
-        password: data.password,
-      );
+  Future<String> _loginUser(LoginData data, BuildContext context) async {
+    String message;
+    final loginAction = LogIn(
+      account: data.name,
+      password: data.password,
+    );
 
-      StoreProvider.of<AppState>(context).dispatch(loginAction);
+    StoreProvider.of<AppState>(context).dispatch(loginAction);
 
-      message = await loginAction.completer.future.catchError((e) {
-        return StocktonLocalizations.of(context)
-            .authErrorMessage(e?.message ?? "");
-      });
-
-      Logger.d("message: $message");
-      return message;
+    message = await loginAction.completer.future.catchError((e) {
+      return StocktonLocalizations.of(context)
+          .authErrorMessage(e?.message ?? "");
     });
+
+    Logger.d("message: $message");
+    return message;
   }
 
   Future<String> _recoverPassword(String name) {

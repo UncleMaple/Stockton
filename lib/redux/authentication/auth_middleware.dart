@@ -66,7 +66,7 @@ void Function(Store<AppState> store, VerifyAuthenticationState action, NextDispa
     memberRepository.getAuthenticationStateChange().listen((member){
       if (member == null) {
         // !!! 关闭了登录页跳转
-        // navigatorKey.currentState.pushReplacementNamed(Routes.login);
+        navigatorKey.currentState.pushReplacementNamed(Routes.login);
       } else{
         store.dispatch(OnAuthenticated(member));
         store.dispatch(ConnectToDataSource());

@@ -10,8 +10,8 @@ class Address {
   }
 
   ///查找member get
-  static findMember() {
-    return "$host/v1/members/find";
+  static findMember(memberId) {
+    return "$host/v1/members/find?member_id=$memberId";
   }
 
   ///通过group_id查找group里所有member get
