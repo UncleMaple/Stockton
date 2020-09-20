@@ -20,6 +20,8 @@ class AppTheme {
   static const colorDeepBlack = Color(0xFF0D0D0D);
   static const colorDarkWhite = Color(0xFFA6A7A9);
   static const colorBrightWhite = Color(0xFFE3E4E6);
+  static const colorTextEnabled = colorDarkWhite;
+
 
   static const colorDarkBlue = Color.fromRGBO(23, 38, 157, 1.0);
   static const colorDarkBlueFont = Color.fromRGBO(4, 24, 138, 1.0);
@@ -30,7 +32,7 @@ class AppTheme {
   static const colorRed = Color.fromRGBO(255, 72, 103, 1.0);
   static const colorShadow = Color.fromRGBO(204, 204, 204, 1.0);
   static const colorTextDisabled = Color.fromRGBO(153, 153, 153, 1.0);
-  static const colorTextEnabled = Color.fromRGBO(0, 0, 0, 1.0);
+  // static const colorTextEnabled = Color.fromRGBO(0, 0, 0, 1.0);
   static const colorTextLink = Color.fromRGBO(74, 144, 226, 1.0);
   static const colorGrey128 = Color.fromRGBO(128, 128, 128, 1.0);
   static const colorGrey128_25 = Color.fromRGBO(128, 128, 128, 0.25);
@@ -219,6 +221,7 @@ class AppTheme {
 
   static TextStyle get buttonTextStyle {
     return TextStyle(
+      color: colorDarkWhite,
       fontSize: 16 * pixelMultiplier,
       fontFamily: fontFamilyEdmondsansBold,
     );

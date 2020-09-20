@@ -1,9 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:stockton/presentation/common/profile_avatar.dart';
+import 'package:stockton/presentation/member/member_avatar.dart';
 import 'package:stockton/presentation/me/me_screen_view_model.dart';
 import 'package:stockton/redux/app_state.dart';
+import 'package:stockton/util/routes.dart';
 import 'package:stockton/util/theme.dart';
 
 class MeScreen extends StatelessWidget {
@@ -41,37 +42,42 @@ class _MeHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(20.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          CircleAvatar(
-            radius: 30.0,
-            backgroundImage: CachedNetworkImageProvider(
-                "https://i.loli.net/2020/09/05/JdlgeqIQCLWDGK8.jpg" ??
-                    vm.currentMember.avatar),
-          ),
-          const SizedBox(width: 12.0),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                vm.currentMember.nickname ?? "no name",
-                style: TextStyle(
-                  color: AppTheme.colorBrightWhite,
-                  fontSize: 22.0,
-                  fontWeight: FontWeight.w500,
-                  letterSpacing: 1.2,
+      padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 40.0),
+      child: InkWell(
+        onTap: (){
+          Navigator.of(context).pushNamed(Routes.member, arguments: vm.currentMember.id);
+        },
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            CircleAvatar(
+              radius: 30.0,
+              backgroundImage: CachedNetworkImageProvider(
+                  "https://i.loli.net/2020/09/05/JdlgeqIQCLWDGK8.jpg" ??
+                      vm.currentMember.avatar),
+            ),
+            const SizedBox(width: 12.0),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  vm.currentMember.nickname ?? "no name",
+                  style: TextStyle(
+                    color: AppTheme.colorBrightWhite,
+                    fontSize: 22.0,
+                    fontWeight: FontWeight.w500,
+                    letterSpacing: 1.2,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 5.0),
-              Text(
-                vm.currentMember.memo ?? "null memo",
-                style: TextStyle(color: AppTheme.colorDarkWhite),
-              ),
-            ],
-          )
-        ],
+                const SizedBox(height: 5.0),
+                Text(
+                  vm.currentMember.memo ?? "null memo",
+                  style: TextStyle(color: AppTheme.colorDarkWhite),
+                ),
+              ],
+            )
+          ],
+        ),
       ),
     );
   }

@@ -5,6 +5,7 @@ import 'package:stockton/data/channel_repository.dart';
 import 'package:stockton/data/group_repository.dart';
 import 'package:stockton/data/member_repository.dart';
 import 'package:stockton/presentation/login/login_screen.dart';
+import 'package:stockton/presentation/member/member_screen.dart';
 import 'package:stockton/presentation/nav/nav_screen.dart';
 import 'package:stockton/redux/app_middleware.dart';
 import 'package:stockton/redux/app_reducer.dart';
@@ -15,7 +16,6 @@ import 'package:stockton/redux/channel/channel_middleware.dart';
 import 'package:stockton/redux/member/member_actions.dart';
 import 'package:stockton/redux/member/member_middleware.dart';
 import 'package:stockton/screens/home_screen.dart';
-import 'package:stockton/screens/login_screen.dart';
 import 'package:stockton/stockton_localization.dart';
 import 'package:stockton/util/routes.dart';
 import 'package:stockton/util/theme.dart';
@@ -117,7 +117,10 @@ class _StocktonAppState extends State<StocktonApp> {
 //            return MainScreen();
             return NavScreen();
 //             return HomeScreen();
-          }
+          },
+          Routes.member: (context) {
+            return MemberScreen();
+          },
         },
       ),
     );

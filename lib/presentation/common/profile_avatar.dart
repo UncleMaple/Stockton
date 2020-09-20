@@ -1,46 +1,47 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:stockton/util/theme.dart';
+import 'package:stockton/presentation/member/member_avatar.dart';
 
 class ProfileAvatar extends StatelessWidget {
-  final String imageUrl;
-  final bool isActive;
-  final bool hasBorder;
+  final String imgUrl;
+  final Widget picIconButton;
 
   const ProfileAvatar({
     Key key,
-    @required this.imageUrl,
-    this.isActive = false,
-    this.hasBorder = false,
+    @required this.imgUrl,
+    this.picIconButton,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Stack(
+      alignment: Alignment.center,
       children: [
-        CircleAvatar(
-          radius: 20.0,
-          backgroundColor: AppTheme.colorClassicBlue,
-          child: CircleAvatar(
-            radius: hasBorder ? 17.0 : 20.0,
-            backgroundImage: CachedNetworkImageProvider(imageUrl),
+        SizedBox(
+          width: _Style.avatarSize,
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              CircularProgressIndicator(),
+              MemberAvatar(
+                imageUrl: imgUrl,
+                size: 30.0,
+              ),
+              Positioned(
+                bottom: 12.0,
+                right: 12.0,
+                child: AnimatedSwitcher(
+                  child: picIconButton ?? SizedBox.shrink(),
+                  duration: Duration(milliseconds: 200),
+                ),
+              ),
+            ],
           ),
         ),
-        isActive
-            ? Positioned(
-                bottom: 0.0,
-                right: 0.0,
-                child: Container(
-                  height: 15.0,
-                  width: 15.0,
-                  decoration: BoxDecoration(
-                      color: AppTheme.colorClassicBlue,
-                      shape: BoxShape.circle,
-                      border: Border.all(width: 2.0, color: Colors.white)),
-                ),
-              )
-            : const SizedBox.shrink(),
       ],
     );
   }
+}
+
+class _Style {
+  static const double avatarSize = 200.0;
 }

@@ -21,3 +21,8 @@
 ## 需要改进
 
 * lib/util/HexColor.dart 改用flutter原生颜色管理
+
+### 20200920
+
+* me screen 整体展示完成
+* me screen 点击头像进入详情页的页面后续需要细化(#bug)

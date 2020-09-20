@@ -1,13 +1,11 @@
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:stockton/screens/home_screen.dart';
-import 'package:stockton/screens/login_screen.dart';
 import 'package:stockton/stockton_app.dart';
 import 'package:stockton/util/logger.dart';
 import 'package:stockton/util/routes.dart';
 import 'package:stockton/util/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';
-import 'package:stockton/screens/login_screen.dart';
 
 void main() {
   configureLogger();

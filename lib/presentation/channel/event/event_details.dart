@@ -359,7 +359,7 @@ class _EventDetailsWidgetState extends State<_EventDetailsWidget>
         children: <Widget>[
           Padding(
             padding: const EdgeInsets.all(AppTheme.appMargin),
-            child: MemberAvatar(member: widget.vm.member),
+            child: MemberAvatar(imageUrl: widget.vm.member.avatar),
           ),
           Text(
             StocktonLocalizations

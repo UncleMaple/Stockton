@@ -124,7 +124,7 @@ class MessageItem extends StatelessWidget {
           right: AppTheme.appMargin,
         ),
         child: MemberAvatar(
-          member: _author,
+          imageUrl: _author.avatar,
         ),
       ),
     );
@@ -173,9 +173,9 @@ class PictureInMessage extends StatelessWidget {
               children: <Widget>[
                 Center(
                     child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: CircularProgressIndicator(),
-                    )),
+                  padding: const EdgeInsets.all(8.0),
+                  child: CircularProgressIndicator(),
+                )),
                 Center(
                   child: Hero(
                     tag: url,

@@ -1,38 +1,48 @@
-import "package:flutter/material.dart";
-import 'package:stockton/models/member.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/material.dart';
 import 'package:stockton/util/theme.dart';
-import "package:transparent_image/transparent_image.dart";
 
 class MemberAvatar extends StatelessWidget {
-  const MemberAvatar({
-    @required this.member,
-    this.size = AppTheme.avatarSize,
-  });
-
-  // member can be null
-  final Member member;
+  final String imageUrl;
   final double size;
+  final bool isActive;
+  final bool hasBorder;
+
+  const MemberAvatar({
+    Key key,
+    @required this.imageUrl,
+    this.isActive = false,
+    this.hasBorder = false,
+    this.size = 20.0,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    if (member?.avatar == null) {
-      return Image.asset(
-        "assets/graphics/avatar_no_picture.png",
-        height: size,
-        width: size,
-        fit: BoxFit.contain,
-      );
-    }
-
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(8.0),
-      child: FadeInImage.memoryNetwork(
-        image: member.avatar,
-        height: size,
-        width: size,
-        fit: BoxFit.fitHeight,
-        placeholder: kTransparentImage,
-      ),
+    return Stack(
+      children: [
+        CircleAvatar(
+          radius: size,
+          backgroundColor: AppTheme.colorClassicBlue,
+          child: CircleAvatar(
+            radius: hasBorder ? 17.0 : size,
+            backgroundImage: CachedNetworkImageProvider(imageUrl),
+          ),
+        ),
+        isActive
+            ? Positioned(
+                bottom: 0.0,
+                right: 0.0,
+                child: Container(
+                  height: 15.0,
+                  width: 15.0,
+                  decoration: BoxDecoration(
+                      color: AppTheme.colorClassicBlue,
+                      shape: BoxShape.circle,
+                      border: Border.all(width: 2.0, color: Colors.white)),
+                ),
+              )
+            : const SizedBox.shrink(),
+      ],
     );
   }
 }
